@@ -1,0 +1,9 @@
+<h1>Home</h1>
+
+{% for food in item_list %}
+   <a href="{% url 'foods:detail' food.id %}"> {{ food.item_name}} </a>
+    {{ food.item_desc}}
+    {{ food.item_price}}
+    <br/>
+
+{% endfor %}
