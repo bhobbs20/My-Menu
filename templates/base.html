@@ -22,6 +22,11 @@
     <div>
     
         {% include 'partials/_navbar.html' %}
+        {% if messagess %}
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        {% endif %}
         {% block content %} {% endblock %}
       
     </div>
