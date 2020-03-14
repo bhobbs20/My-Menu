@@ -1,9 +1,37 @@
-<h1>Home</h1>
+{% extends 'base.html' %}
+{% load static %}
 
+
+{% block title %} | Welcome {% endblock %}
+
+{% block content %}
+
+<br/>
+<div class="container">
 {% for food in item_list %}
-   <a href="{% url 'foods:detail' food.id %}"> {{ food.item_name}} </a>
-    {{ food.item_desc}}
-    {{ food.item_price}}
-    <br/>
-
+    <div class="row">
+        <div class="col-md-3 offset-md-2">
+            <img class="card" height="150px" src="{{food.item_image}}"/>
+        </div>
+        <div class="col-md-4">
+            <h3>{{food.item_name}}</h3>
+            <h5>{{food.item_desc}}</h5>
+            <h6>$ {{food.item_price}}</h6>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'foods:detail' food.id %}" class="btn btn-info">Details</a>
+        </div>
+    </div>
 {% endfor %}
+<br/>
+</div>
+
+
+   {% comment %} <a href="{% url 'foods:detail' food.id %}"> {{ food.item_name}} </a>
+    <p>{{ food.item_desc}}</p>
+   <p> {{ food.item_price}}</p> {% endcomment %}
+    
+
+
+
+{% endblock %}

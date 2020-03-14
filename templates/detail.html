@@ -1,8 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} | Welcome {% endblock %}
+
+{% block content %}
+
 <h1>Dteails Page</h1>
 
 <br/>
 <br/>
 
-<h1>{{item.item_name}}</h1>
-<p>{{item.item_desc }}</p>
-<p>{{item.item_price}}</p>
+<div class="conatiner">
+    <div class="row">
+        <div class="col-md-6">
+            <img height="300px" src="{{ item.item_image }}" class="card" />
+        </div>
+        <div class="col-md-6">
+            <h1>{{item.item_name}}</h1>
+             <p>{{item.item_subtitle}}</p>
+        
+            <p>{{item.item_desc }}</p>
+            <a href="{% url 'foods:delete_food' item.id %}">Delete</a>
+        </div>   
+    </div>
+</div>
+
+
+
+{% endblock %}
